@@ -8,7 +8,7 @@ const docRef = (id) => {
 };
 
 const getAllAppointments = async () => {
-  const q = query(collectionRef, limit(50), orderBy('createdAt', 'asc'));
+  const q = query(collectionRef, limit(50), orderBy('createdAt'));
   const data = await getDocs(q);
   return data.docs.map((doc) => ({ ...doc.data(), appointmentId: doc.id }));
 };
