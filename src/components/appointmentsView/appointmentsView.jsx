@@ -10,7 +10,6 @@ const AppointmentsView = () => {
     const loadAppointments = async () => {
       await AppointmentService.getAllAppointments()
         .then((response) => {
-            console.log(response)
           setAppointments(response);
         })
         .catch((err) => {
@@ -29,7 +28,7 @@ const AppointmentsView = () => {
         <tr>
           <th>Nombre Cliente</th>
           <th>Comentario</th>
-          <th>Hora</th>
+          <th>Hora Solicitud</th>
         </tr>
       </thead>
       <tbody>
