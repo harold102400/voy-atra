@@ -1,5 +1,11 @@
+import AppointmentsView from 'components/appointmentsView/appointmentsView';
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <AppointmentsView />
+    </>
+  );
 };
 
 export default Home;
