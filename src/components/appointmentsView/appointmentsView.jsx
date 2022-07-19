@@ -10,7 +10,7 @@ const AppointmentsView = () => {
     const loadAppointments = async () => {
       await AppointmentService.getAllAppointments()
         .then((response) => {
-            console.log(response)
+          console.log(response);
           setAppointments(response);
         })
         .catch((err) => {
@@ -37,7 +37,7 @@ const AppointmentsView = () => {
           <tr key={x.appointmentId}>
             <td>{x.name}</td>
             <td>{x.comment}</td>
-            <td>{x.createdAt}</td>
+            <td>{new Date(x.createdAt)}</td>
           </tr>
         ))}
       </tbody>
