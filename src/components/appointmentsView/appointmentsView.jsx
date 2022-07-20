@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AppointmentService from 'services/appointment.service';
 import Spinner from 'components/spinner/spinner';
+import Helper from 'utils/helper';
 
 const AppointmentsView = () => {
   const [loadingData, setLoadingData] = useState(true);
@@ -10,7 +11,6 @@ const AppointmentsView = () => {
     const loadAppointments = async () => {
       await AppointmentService.getAllAppointments()
         .then((response) => {
-          console.log(response);
           setAppointments(response);
         })
         .catch((err) => {
@@ -37,7 +37,7 @@ const AppointmentsView = () => {
           <tr key={x.appointmentId}>
             <td>{x.name}</td>
             <td>{x.comment}</td>
-            <td>{new Date(x.createdAt.seconds * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
+            <td>{Helper.formatTimeStamp(x.createdAt)}</td>
           </tr>
         ))}
       </tbody>
