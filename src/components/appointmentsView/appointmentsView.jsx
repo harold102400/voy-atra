@@ -37,7 +37,7 @@ const AppointmentsView = () => {
           <tr key={x.appointmentId}>
             <td>{x.name}</td>
             <td>{x.comment}</td>
-            <td>{new Date(x.createdAt)}</td>
+            <td>{new Date(x.createdAt.seconds * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
           </tr>
         ))}
       </tbody>
