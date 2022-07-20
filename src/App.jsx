@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Router from './router/router';
 import { AuthContextProvider } from './context/authContext';
