@@ -30,8 +30,7 @@ const AppointmentsView = () => {
       <thead>
         <tr>
           <th>Turno</th>
-          <th>Nombre Cliente</th>
-          <th>Comentario</th>
+          <th>Cliente</th>
           <th>Hora Solicitud</th>
         </tr>
       </thead>
@@ -40,7 +39,6 @@ const AppointmentsView = () => {
           <tr key={x.appointmentId}>
             <td></td>
             <td>{x.name}</td>
-            <td>{x.comment}</td>
             <td>{Helper.formatTimeStamp(x.createdAt)}</td>
           </tr>
         ))}
