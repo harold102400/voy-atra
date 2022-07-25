@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import AppointmentService from 'services/appointment.service';
 import Spinner from 'components/spinner/spinner';
 import Helper from 'utils/helper';
+import Table from 'react-bootstrap/esm/Table';
 
 const AppointmentsView = () => {
   const [loadingData, setLoadingData] = useState(true);
@@ -24,7 +25,7 @@ const AppointmentsView = () => {
   return loadingData ? (
     <Spinner />
   ) : (
-    <table className='table mt-5'>
+    <Table className='table mt-5'>
       <thead>
         <tr>
           <th>Nombre Cliente</th>
@@ -41,7 +42,7 @@ const AppointmentsView = () => {
           </tr>
         ))}
       </tbody>
-    </table>
+    </Table>
   );
 };
 
