@@ -1,5 +1,5 @@
 import AppointmentsView from 'components/appointmentsView/appointmentsView';
-import RequestAppointmentBtn from 'components/buttons/requestAppointmentBtn';
+import RequestAppointmentBtn from 'components/appointmentRequest/appointmentRequest';
 
 const Home = () => {
   return (

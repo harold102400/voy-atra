@@ -26,10 +26,9 @@ const RequestAppointmentBtn = () => {
           Solicitar Turno
         </Button>
       </div>
-
-      <Modal show={show} onHide={handleClose} centered>
-        <Formik initialValues={initialValues} validationSchema={validation} onSubmit={handleSubmit}>
-          <Form>
+      <Formik initialValues={initialValues} validationSchema={validation} onSubmit={(handleSubmit)}>
+        <Form>
+          <Modal show={show} onHide={handleClose} centered>
             <Modal.Header closeButton>
               <Modal.Title>Solicitar Turno</Modal.Title>
             </Modal.Header>
@@ -41,13 +40,13 @@ const RequestAppointmentBtn = () => {
               <Button variant='btn btn-outline-dark' onClick={handleClose}>
                 Cancelar
               </Button>
-              <Button type='submit' variant='btn btn-secondary' onClick={handleClose}>
+              <Button variant='btn btn-secondary' onClick={handleSubmit}>
                 Solicitar Turno
               </Button>
             </Modal.Footer>
-          </Form>
-        </Formik>
-      </Modal>
+          </Modal>
+        </Form>
+      </Formik>
     </>
   );
 };
