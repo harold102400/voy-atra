@@ -12,8 +12,9 @@ const appointment = Yup.object({
   name: Yup.string()
     .max(20, 'Nombre no puede exceder 20 caracteres.')
     .min(3, 'Nombre no puede tener menos de 3 caracteres.')
-    .required('Campo obligatorio!'),
-  comment: Yup.string().max(40, 'Comentario no puede exceder de 60 caracteres.')
+    .required('Campo obligatorio!')
+    .matches(/^[aA-zZ\s]+$/, 'Solo se permiten letras.'),
+  comment: Yup.string().max(40, 'Comentario no puede exceder de 40 caracteres.')
 });
 
 const YupValidationSchema = {

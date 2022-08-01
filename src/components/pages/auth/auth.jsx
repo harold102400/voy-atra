@@ -41,7 +41,7 @@ const Auth = () => {
   ) : (
     <Formik initialValues={initialValues} validationSchema={validation} onSubmit={handleOnAuth}>
       <div>
-        <h1 className='login-title'>Login</h1>
+        <h2 className='login-title'>Login</h2>
         <div className='login-form'>
           <Form>
             <div className='form-control'>
