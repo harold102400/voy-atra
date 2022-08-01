@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 import { UserAuth } from 'context/authContext';
 import Swal from 'sweetalert2';
 import YupValidationSchema from 'utils/yupValidationSchema';
-import Spinner from '../../spinner/spinner';
+import Spinner from 'components/spinner/spinner';
 import InputFormik from 'components/formik/inputFormik';
 
 const Auth = () => {
