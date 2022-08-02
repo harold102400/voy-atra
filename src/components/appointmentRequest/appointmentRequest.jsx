@@ -50,10 +50,10 @@ const AppointmentRequest = () => {
           }).then(() => {
             navigate('/');
           });
-        } catch (error) {
+        } catch (err) {
           SwalObj.fire({
             title: 'Error solicitando turno!',
-            html: `${error.response.data.title}`,
+            html: `${err.response.data.title}`,
             icon: 'error',
             showConfirmButton: false
           });
