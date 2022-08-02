@@ -1,4 +1,4 @@
-import { collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, query, limit, orderBy } from 'firebase/firestore';
+import { collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, query, limit, orderBy, Timestamp } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 
 const collectionRef = collection(db, 'appointments');
@@ -19,6 +19,7 @@ const getAppointmentById = async (id) => {
 };
 
 const createAppointment = async (data) => {
+  data.createdAt = Timestamp.fromDate(new Date(Date.now()));
   await addDoc(collectionRef, data);
 };
 
