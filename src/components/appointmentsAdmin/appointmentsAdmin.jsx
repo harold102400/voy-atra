@@ -22,7 +22,7 @@ const AppointmentsAdmin = ({ collection }) => {
       setLoadingData(false);
     };
     loadAppointments();
-  }, []);
+  }, [collection]);
 
   return loadingData ? (
     <Spinner />

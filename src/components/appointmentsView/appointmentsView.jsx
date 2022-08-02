@@ -21,7 +21,7 @@ const AppointmentsView = ({ collection }) => {
       setLoadingData(false);
     };
     loadAppointments();
-  }, []);
+  }, [collection]);
 
   return loadingData ? (
     <Spinner />
