@@ -1,13 +1,16 @@
 import { collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, query, limit, orderBy, Timestamp } from 'firebase/firestore';
-import { db } from '../utils/firebase';
+import { db } from 'utils/firebase';
+
+const collectionRef = (colRef) => {
+  return collection(db, colRef);
+};
 
 const docRef = (id, colRef) => {
   return doc(db, colRef, id);
 };
 
 const getAllAppointments = async (colRef) => {
-  const collectionRef = collection(db, colRef);
-  const q = query(collectionRef, limit(50), orderBy('createdAt'));
+  const q = query(collectionRef(colRef), limit(50), orderBy('createdAt'));
   const data = await getDocs(q);
   return data.docs.map((doc) => ({ ...doc.data(), appointmentId: doc.id }));
 };
@@ -18,9 +21,8 @@ const getAppointmentById = async (id, colRef) => {
 };
 
 const createAppointment = async (data, colRef) => {
-  const collectionRef = collection(db, colRef);
   data.createdAt = Timestamp.fromDate(new Date(Date.now()));
-  await addDoc(collectionRef, data);
+  await addDoc(collectionRef(colRef), data);
 };
 
 const updateAppointment = async (id, colRef, data) => {
