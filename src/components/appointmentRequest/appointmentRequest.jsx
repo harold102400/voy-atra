@@ -8,7 +8,7 @@ import Spinner from 'components/spinner/spinner';
 import InputFormik from 'components/formik/inputFormik';
 import YupValidationSchema from 'utils/yupValidationSchema';
 import Button from 'react-bootstrap/Button';
-import NavigateButton from 'components/buttons/navigateButton/navigateButton';
+import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 import AppointmentService from 'services/appointment.service';
 
 const AppointmentRequest = () => {
@@ -74,7 +74,7 @@ const AppointmentRequest = () => {
             <InputFormik control='input' type='text' label='Nombre:' name='name' />
             <InputFormik control='input' type='text' label='Comentario:' name='comment' />
             <div className='mt-4'>
-              <NavigateButton route={'/'} variant='btn btn-outline-dark btn-lg btn-block' text={'Volver'} />
+              <NavigateBtn route={'/'} variant='btn btn-outline-dark btn-lg btn-block' text={'Volver'} />
               <Button variant='btn btn-secondary btn-lg' type='submit'>
                 Solicitar
               </Button>

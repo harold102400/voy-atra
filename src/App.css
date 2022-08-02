@@ -25,3 +25,7 @@ h2 {
 main {
   margin: 1rem;
 }
+
+.swal2-cancel:focus {
+  box-shadow: none;
+}
