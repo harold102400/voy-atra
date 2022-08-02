@@ -10,8 +10,10 @@ import YupValidationSchema from 'utils/yupValidationSchema';
 import Button from 'react-bootstrap/Button';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 import AppointmentService from 'services/appointment.service';
+import { UserAuth } from 'context/authContext';
 
 const AppointmentRequest = () => {
+  const { user } = UserAuth();
   const navigate = useNavigate();
   const [loadingData, setLoadingData] = useState(false);
   const validation = YupValidationSchema.appointment;
@@ -48,7 +50,7 @@ const AppointmentRequest = () => {
             icon: 'success',
             showConfirmButton: false
           }).then(() => {
-            navigate('/');
+            navigate(user ? '/admin-panel' : '/');
           });
         } catch (err) {
           SwalObj.fire({
@@ -74,7 +76,7 @@ const AppointmentRequest = () => {
             <InputFormik control='input' type='text' label='Nombre:' name='name' />
             <InputFormik control='input' type='text' label='Comentario:' name='comment' />
             <div className='mt-4'>
-              <NavigateBtn route={'/'} variant='btn btn-outline-dark btn-lg btn-block' text={'Volver'} />
+              <NavigateBtn route={user ? '/admin-panel' : '/'} variant='btn btn-outline-dark btn-lg btn-block' text={'Volver'} />
               <Button variant='btn btn-secondary btn-lg' type='submit'>
                 Solicitar
               </Button>
