@@ -43,7 +43,13 @@ const AppointmentRequest = () => {
         try {
           values.name = Helper.firstCharToUpper(values.name);
           AppointmentService.createAppointment(values);
-          navigate('/');
+          SwalObj.fire({
+            title: `Turno Asignado!`,
+            icon: 'success',
+            showConfirmButton: false
+          }).then(() => {
+            navigate('/');
+          });
         } catch (error) {
           SwalObj.fire({
             title: 'Error solicitando turno!',
