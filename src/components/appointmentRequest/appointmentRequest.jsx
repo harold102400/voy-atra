@@ -1,5 +1,6 @@
 import './appointmentRequest.css';
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -13,6 +14,7 @@ import AppointmentService from 'services/appointment.service';
 import { UserAuth } from 'context/authContext';
 
 const AppointmentRequest = () => {
+  const params = useParams();
   const { user } = UserAuth();
   const navigate = useNavigate();
   const [loadingData, setLoadingData] = useState(false);
@@ -44,13 +46,13 @@ const AppointmentRequest = () => {
         setLoadingData(true);
         try {
           values.name = Helper.firstCharToUpper(values.name);
-          AppointmentService.createAppointment(values);
+          AppointmentService.createAppointment(values, params.collection);
           SwalObj.fire({
             title: `Turno Asignado!`,
             icon: 'success',
             showConfirmButton: false
           }).then(() => {
-            navigate(user ? '/admin-panel' : '/');
+            navigate(user ? `/admin-panel/${params.collection}` : `/${params.collection}`);
           });
         } catch (err) {
           SwalObj.fire({
@@ -76,7 +78,11 @@ const AppointmentRequest = () => {
             <InputFormik control='input' type='text' label='Nombre:' name='name' />
             <InputFormik control='input' type='text' label='Comentario:' name='comment' />
             <div className='mt-4'>
-              <NavigateBtn route={user ? '/admin-panel' : '/'} variant='btn btn-outline-dark btn-lg btn-block' text={'Volver'} />
+              <NavigateBtn
+                route={user ? `/admin-panel/${params.collection}` : `/${params.collection}`}
+                variant='btn btn-outline-dark btn-lg btn-block'
+                text={'Volver'}
+              />
               <Button variant='btn btn-secondary btn-lg' type='submit'>
                 Solicitar
               </Button>
