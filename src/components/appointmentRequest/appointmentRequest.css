@@ -5,3 +5,7 @@ form .btn {
 form .btn:nth-child(1) {
   float: left;
 }
+
+.swal2-cancel:focus {
+  box-shadow: none;
+}
