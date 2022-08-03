@@ -7,7 +7,7 @@ const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [userSite, setUserSite] = useState();
+  const [userSite, setUserSite] = useState('');
 
   const signIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -15,9 +15,9 @@ const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setUser(currentUser);
-      setUserSite(Helper.getSiteFromEmail(currentUser.email));
+      currentUser && setUserSite(Helper.getSiteFromEmail(currentUser.email));
+      console.log(currentUser);
     });
     return () => {
       unsubscribe();
