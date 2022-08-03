@@ -1,9 +1,11 @@
+import { UserAuth } from 'context/userContext';
+import { useNavigate } from 'react-router-dom';
+
 const NotFound = () => {
-  return (
-    <div className='not-found'>
-      <p>Pagina no encontrada.</p>
-    </div>
-  );
+  const { userSite } = UserAuth();
+  const navigate = useNavigate();
+
+  return userSite ? navigate(`/admin-panel/${userSite}`) : <p>Pagina no encontrada.</p>;
 };
 
 export default NotFound;

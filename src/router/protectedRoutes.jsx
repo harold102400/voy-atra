@@ -4,7 +4,7 @@ import { UserAuth } from 'context/userContext';
 const ProtectedRoutes = () => {
   const { user } = UserAuth();
 
-  return user ? <Outlet /> : <div>Forbidden.</div>;
+  return user ? <Outlet /> : <p>Forbidden.</p>;
 };
 
 export default ProtectedRoutes;
