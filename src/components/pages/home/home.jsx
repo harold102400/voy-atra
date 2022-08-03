@@ -1,6 +1,6 @@
 import './home.css';
 import { useParams } from 'react-router-dom';
-import { UserAuth } from 'context/authContext';
+import { UserAuth } from 'context/userContext';
 import AppointmentsView from 'components/appointments/appointmentsView/appointmentsView';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 

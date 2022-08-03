@@ -1,18 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Router from './router/router';
-import { AuthContextProvider } from './context/authContext';
+import { UserContextProvider } from './context/userContext';
 
 function App() {
   return (
     <div className='App'>
-      <AuthContextProvider>
+      <UserContextProvider>
         <header></header>
         <main>
           <Router />
         </main>
         <footer></footer>
-      </AuthContextProvider>
+      </UserContextProvider>
     </div>
   );
 }

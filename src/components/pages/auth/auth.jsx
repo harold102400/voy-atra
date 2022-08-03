@@ -2,7 +2,7 @@ import './auth.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
-import { UserAuth } from 'context/authContext';
+import { UserAuth } from 'context/userContext';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import YupValidationSchema from 'utils/yupValidationSchema';

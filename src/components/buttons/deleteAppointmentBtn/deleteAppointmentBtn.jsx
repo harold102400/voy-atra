@@ -13,11 +13,11 @@ const DeleteAppointmentBtn = ({ id, name, site }) => {
 
   const handleClick = () => {
     SwalObj.fire({
-      title: 'Eliminar Turno',
+      title: 'Finalizar Turno',
       html: `Confirme que va concluir con el cliente <b>${name}</b>.`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'ELIMINAR',
+      confirmButtonText: 'FINALIZAR',
       cancelButtonText: 'CANCELAR',
       focusCancel: true,
       reverseButtons: true

@@ -3,9 +3,9 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import Helper from 'utils/helper';
 
-const AuthContext = createContext();
+const UserContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
+const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [userSite, setUserSite] = useState();
 
@@ -24,11 +24,11 @@ const AuthContextProvider = ({ children }) => {
     };
   }, []);
 
-  return <AuthContext.Provider value={{ signIn, user, userSite }}>{children}</AuthContext.Provider>;
+  return <UserContext.Provider value={{ signIn, user, userSite }}>{children}</UserContext.Provider>;
 };
 
 const UserAuth = () => {
-  return useContext(AuthContext);
+  return useContext(UserContext);
 };
 
-export { AuthContextProvider, UserAuth };
+export { UserContextProvider, UserAuth };

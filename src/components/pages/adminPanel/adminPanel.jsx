@@ -1,4 +1,4 @@
-import { UserAuth } from 'context/authContext';
+import { UserAuth } from 'context/userContext';
 import AppointmentsAdmin from 'components/appointments/appointmentsAdmin/appointmentsAdmin';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 

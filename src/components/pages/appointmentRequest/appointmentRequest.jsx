@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { UserAuth } from 'context/authContext';
+import { UserAuth } from 'context/userContext';
 import Swal from 'sweetalert2';
 import Helper from 'utils/helper';
 import Spinner from 'components/spinner/spinner';
