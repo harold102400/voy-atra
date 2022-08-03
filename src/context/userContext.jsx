@@ -22,7 +22,7 @@ const UserContextProvider = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, [userSite]);
+  }, []);
 
   return <UserContext.Provider value={{ signIn, user, userSite }}>{children}</UserContext.Provider>;
 };
