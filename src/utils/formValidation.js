@@ -17,9 +17,9 @@ const appointment = Yup.object({
   comment: Yup.string().max(40, 'Comentario no puede exceder de 40 caracteres.')
 });
 
-const YupValidationSchema = {
+const FormValidation = {
   signIn,
   appointment
 };
 
-export default YupValidationSchema;
+export default FormValidation;

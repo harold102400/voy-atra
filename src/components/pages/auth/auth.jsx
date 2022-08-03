@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 import { UserAuth } from 'context/userContext';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import YupValidationSchema from 'utils/yupValidationSchema';
+import FormValidation from 'utils/formValidation';
 import Spinner from 'components/spinner/spinner';
 import InputFormik from 'components/formik/inputFormik';
 
@@ -15,7 +15,7 @@ const Auth = () => {
   const params = useParams();
   const [loadingData, setLoadingData] = useState(false);
   const navigate = useNavigate();
-  const validation = YupValidationSchema.signIn;
+  const validation = FormValidation.signIn;
   const initialValues = {
     email: '',
     password: ''

@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import Helper from 'utils/helper';
 import Spinner from 'components/spinner/spinner';
 import InputFormik from 'components/formik/inputFormik';
-import YupValidationSchema from 'utils/yupValidationSchema';
+import FormValidation from 'utils/formValidation';
 import Button from 'react-bootstrap/Button';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 import AppointmentService from 'services/appointment.service';
@@ -18,7 +18,7 @@ const AppointmentRequest = () => {
   const { user, userSite } = UserAuth();
   const navigate = useNavigate();
   const [loadingData, setLoadingData] = useState(false);
-  const validation = YupValidationSchema.appointment;
+  const validation = FormValidation.appointment;
   const initialValues = {
     name: '',
     comment: ''
