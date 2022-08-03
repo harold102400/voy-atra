@@ -11,9 +11,15 @@ const firstCharToUpper = (string) => {
   return sentence.toString().replaceAll(',', ' ');
 };
 
+const getSiteFromEmail = (string) => {
+  const regEx = new RegExp('(?<=@).*(?=....)');
+  return string.match(regEx)[0];
+};
+
 const Helper = {
   formatTimeStamp,
-  firstCharToUpper
+  firstCharToUpper,
+  getSiteFromEmail
 };
 
 export default Helper;

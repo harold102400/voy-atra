@@ -1,17 +1,17 @@
-import { useParams } from 'react-router-dom';
-import AppointmentsAdmin from 'components/appointmentsAdmin/appointmentsAdmin';
+import { UserAuth } from 'context/authContext';
+import AppointmentsAdmin from 'components/appointments/appointmentsAdmin/appointmentsAdmin';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 
 const AdminPanel = () => {
-  const params = useParams();
+  const { userSite } = UserAuth();
 
   return (
     <div>
       <h2>Panel de Administración</h2>
       <div className='mt-5'>
-        <NavigateBtn route={`/appointment-request/${params.site}`} variant='btn btn-secondary btn-lg btn-block' text={'Agregar Turno'} />
+        <NavigateBtn route={`/appointment-request/${userSite}`} variant='btn btn-secondary btn-lg btn-block' text={'Agregar Turno'} />
       </div>
-      <AppointmentsAdmin site={params.site} />
+      {userSite && <AppointmentsAdmin site={userSite} />}
     </div>
   );
 };

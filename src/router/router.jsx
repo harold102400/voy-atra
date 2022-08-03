@@ -4,7 +4,7 @@ import NotFound from 'components/pages/notFound/notFound';
 import Home from 'components/pages/home/home';
 import Auth from 'components/pages/auth/auth';
 import AdminPanel from 'components/pages/adminPanel/adminPanel';
-import AppointmentRequest from 'components/appointmentRequest/appointmentRequest';
+import AppointmentRequest from 'components/appointments/appointmentRequest/appointmentRequest';
 
 const Router = () => {
   return (

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { UserAuth } from 'context/authContext';
 import Swal from 'sweetalert2';
 import Helper from 'utils/helper';
 import Spinner from 'components/spinner/spinner';
@@ -11,11 +12,10 @@ import YupValidationSchema from 'utils/yupValidationSchema';
 import Button from 'react-bootstrap/Button';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 import AppointmentService from 'services/appointment.service';
-import { UserAuth } from 'context/authContext';
 
 const AppointmentRequest = () => {
   const params = useParams();
-  const { user } = UserAuth();
+  const { user, userSite } = UserAuth();
   const navigate = useNavigate();
   const [loadingData, setLoadingData] = useState(false);
   const validation = YupValidationSchema.appointment;
@@ -52,7 +52,7 @@ const AppointmentRequest = () => {
             icon: 'success',
             showConfirmButton: false
           }).then(() => {
-            navigate(user ? `/admin-panel/${params.site}` : `/${params.site}`);
+            navigate(user ? `/admin-panel/${userSite}` : `/${params.site}`);
           });
         } catch (err) {
           SwalObj.fire({
@@ -79,7 +79,7 @@ const AppointmentRequest = () => {
             <InputFormik control='input' type='text' label='Comentario:' name='comment' />
             <div className='mt-4'>
               <NavigateBtn
-                route={user ? `/admin-panel/${params.site}` : `/${params.site}`}
+                route={user ? `/admin-panel/${userSite}` : `/${params.site}`}
                 variant='btn btn-outline-dark btn-lg btn-block'
                 text={'Volver'}
               />

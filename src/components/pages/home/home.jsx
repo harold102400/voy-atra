@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import AppointmentsView from 'components/appointmentsView/appointmentsView';
+import AppointmentsView from 'components/appointments/appointmentsView/appointmentsView';
 import NavigateBtn from 'components/buttons/navigateBtn/navigateBtn';
 
 const Home = () => {

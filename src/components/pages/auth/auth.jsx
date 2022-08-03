@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { UserAuth } from 'context/authContext';
+import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import YupValidationSchema from 'utils/yupValidationSchema';
 import Spinner from 'components/spinner/spinner';
@@ -11,6 +12,7 @@ import InputFormik from 'components/formik/inputFormik';
 const Auth = () => {
   const SwalObj = Swal.mixin();
   const { signIn } = UserAuth();
+  const params = useParams();
   const [loadingData, setLoadingData] = useState(false);
   const navigate = useNavigate();
   const validation = YupValidationSchema.signIn;
@@ -23,7 +25,7 @@ const Auth = () => {
     setLoadingData(true);
     try {
       await signIn(values.email, values.password);
-      navigate('/admin-panel');
+      navigate(`/admin-panel/${params.site}`);
       setLoadingData(false);
     } catch (err) {
       setLoadingData(false);
