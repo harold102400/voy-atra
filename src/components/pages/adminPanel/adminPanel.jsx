@@ -9,9 +9,9 @@ const AdminPanel = () => {
     <div>
       <h2>Panel de Administración</h2>
       <div className='mt-5'>
-        <NavigateBtn route={`/appointment-request/${params.collection}`} variant='btn btn-secondary btn-lg btn-block' text={'Agregar Turno'} />
+        <NavigateBtn route={`/appointment-request/${params.site}`} variant='btn btn-secondary btn-lg btn-block' text={'Agregar Turno'} />
       </div>
-      <AppointmentsAdmin collection={params.collection} />
+      <AppointmentsAdmin site={params.site} />
     </div>
   );
 };

@@ -5,13 +5,13 @@ import Spinner from 'components/spinner/spinner';
 import Helper from 'utils/helper';
 import Table from 'react-bootstrap/esm/Table';
 
-const AppointmentsView = ({ collection }) => {
+const AppointmentsView = ({ site }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     const loadAppointments = async () => {
-      await AppointmentService.getAllAppointments(collection)
+      await AppointmentService.getAllAppointments(site)
         .then((response) => {
           setAppointments(response);
         })
@@ -21,7 +21,7 @@ const AppointmentsView = ({ collection }) => {
       setLoadingData(false);
     };
     loadAppointments();
-  }, [collection]);
+  }, [site]);
 
   return loadingData ? (
     <Spinner />

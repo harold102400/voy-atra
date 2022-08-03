@@ -10,11 +10,11 @@ const Router = () => {
   return (
     <Routes>
       <Route path='*' element={<NotFound />} />
-      <Route path='/:collection' element={<Home />} />
-      <Route path='/auth/:collection' element={<Auth />} />
-      <Route path='/appointment-request/:collection' element={<AppointmentRequest />} />
+      <Route path='/:site' element={<Home />} />
+      <Route path='/auth/:site' element={<Auth />} />
+      <Route path='/appointment-request/:site' element={<AppointmentRequest />} />
       <Route element={<ProtectedRoutes />}>
-        <Route path='/admin-panel/:collection' element={<AdminPanel />} />
+        <Route path='/admin-panel/:site' element={<AdminPanel />} />
       </Route>
     </Routes>
   );

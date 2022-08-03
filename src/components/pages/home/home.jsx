@@ -9,9 +9,9 @@ const Home = () => {
     <div>
       <h2>Listado de turnos</h2>
       <div className='mt-5'>
-        <NavigateBtn route={`/appointment-request/${params.collection}`} variant='btn btn-secondary btn-lg btn-block' text={'Solicitar Turno'} />
+        <NavigateBtn route={`/appointment-request/${params.site}`} variant='btn btn-secondary btn-lg btn-block' text={'Solicitar Turno'} />
       </div>
-      <AppointmentsView collection={params.collection} />
+      <AppointmentsView site={params.site} />
     </div>
   );
 };

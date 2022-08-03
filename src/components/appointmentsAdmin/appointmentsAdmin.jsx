@@ -6,13 +6,13 @@ import Helper from 'utils/helper';
 import Table from 'react-bootstrap/esm/Table';
 import DeleteAppointmentBtn from 'components/buttons/deleteAppointmentBtn/deleteAppointmentBtn';
 
-const AppointmentsAdmin = ({ collection }) => {
+const AppointmentsAdmin = ({ site }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     const loadAppointments = async () => {
-      await AppointmentService.getAllAppointments(collection)
+      await AppointmentService.getAllAppointments(site)
         .then((response) => {
           setAppointments(response);
         })
@@ -22,7 +22,7 @@ const AppointmentsAdmin = ({ collection }) => {
       setLoadingData(false);
     };
     loadAppointments();
-  }, [collection]);
+  }, [site]);
 
   return loadingData ? (
     <Spinner />
@@ -44,7 +44,7 @@ const AppointmentsAdmin = ({ collection }) => {
             <td>{Helper.formatTimeStamp(x.createdAt)}</td>
             <td>{x.comment}</td>
             <td>
-              <DeleteAppointmentBtn id={x.appointmentId} name={x.name} collection={collection} />
+              <DeleteAppointmentBtn id={x.appointmentId} name={x.name} site={site} />
             </td>
           </tr>
         ))}

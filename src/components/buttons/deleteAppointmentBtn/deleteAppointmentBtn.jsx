@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import AppointmentService from 'services/appointment.service';
 import Button from 'react-bootstrap/Button';
 
-const DeleteAppointmentBtn = ({ id, name, collection }) => {
+const DeleteAppointmentBtn = ({ id, name, site }) => {
   const SwalObj = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-outline-danger m-3',
@@ -23,7 +23,7 @@ const DeleteAppointmentBtn = ({ id, name, collection }) => {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        AppointmentService.deleteAppointment(id, collection);
+        AppointmentService.deleteAppointment(id, site);
         SwalObj.fire({
           html: 'Turno Concluido!',
           icon: 'success',

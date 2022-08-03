@@ -46,13 +46,13 @@ const AppointmentRequest = () => {
         setLoadingData(true);
         try {
           values.name = Helper.firstCharToUpper(values.name);
-          AppointmentService.createAppointment(values, params.collection);
+          AppointmentService.createAppointment(values, params.site);
           SwalObj.fire({
             title: `Turno Asignado!`,
             icon: 'success',
             showConfirmButton: false
           }).then(() => {
-            navigate(user ? `/admin-panel/${params.collection}` : `/${params.collection}`);
+            navigate(user ? `/admin-panel/${params.site}` : `/${params.site}`);
           });
         } catch (err) {
           SwalObj.fire({
@@ -79,7 +79,7 @@ const AppointmentRequest = () => {
             <InputFormik control='input' type='text' label='Comentario:' name='comment' />
             <div className='mt-4'>
               <NavigateBtn
-                route={user ? `/admin-panel/${params.collection}` : `/${params.collection}`}
+                route={user ? `/admin-panel/${params.site}` : `/${params.site}`}
                 variant='btn btn-outline-dark btn-lg btn-block'
                 text={'Volver'}
               />
