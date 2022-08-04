@@ -11,7 +11,7 @@ exports.clearAllAppointments = functions.pubsub
     let promises = [];
     let snap;
 
-    snap = await db.collection('appointments').get();
+    snap = await db.collection('test-site').get();
     snap.forEach((snap) => {
       promises.push(snap.ref.delete());
     });
