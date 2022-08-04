@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Router from './router/router';
 import { UserContextProvider } from './context/userContext';
+import Container from 'react-bootstrap/Container';
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       <UserContextProvider>
         <header></header>
         <main>
-          <Router />
+          <Container>
+            <Router />
+          </Container>
         </main>
         <footer></footer>
       </UserContextProvider>
